@@ -27,7 +27,8 @@ while cap.isOpened():  # пока камера "работает"
 
             mpDraw.draw_landmarks(image, handLms, mp_Hands.HAND_CONNECTIONS)
             fingersList = [] 
-            for lm in handLms: # перебираем ключевые точки на руке
+            #ВНИМАНИЕ!!!
+            for lm in handLms.landmark: # перебираем ключевые точки на руке
                 h, w, c = image.shape
                 cx, cy = int(lm.x * w), int(lm.y * h)
                 fingersList.append((cx, cy))
